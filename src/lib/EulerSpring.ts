@@ -2,12 +2,15 @@ import {
 	InternalSpring1DConfig,
 	Spring1DConfig,
 } from './configs';
-import { Stepable } from './Computable';
+import {
+	Stepable,
+	Computable1D,
+} from './Computable';
 
 import World from './World';
 
 
-export default class EulerSpring implements Stepable {
+export default class EulerSpring implements Stepable, Computable1D {
 	private current: number = 0;
 	private target: number = 0;
 	private config: InternalSpring1DConfig;

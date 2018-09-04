@@ -2,11 +2,15 @@ import {
 	InternalParticle1DConfig,
 	Particle1DConfig,
 } from './configs';
-import { Stepable } from './Computable';
+import {
+	Stepable,
+	Computable1D,
+} from './Computable';
+
 import World from './World';
 
 
-export default class EulerParticle implements Stepable {
+export default class EulerParticle implements Stepable, Computable1D {
 	private value: number = 0;
 	private config: InternalParticle1DConfig;
 	public enabled: boolean = true;
