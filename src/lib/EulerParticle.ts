@@ -1,17 +1,20 @@
-import './configs';
+import {
+	InternalParticle1DConfig,
+	Particle1DConfig,
+} from './configs';
 import { Stepable } from './Computable';
 import World from './World';
 
 
 export default class EulerParticle implements Stepable {
 	private value: number = 0;
-	private config: InternalParticleConfig;
+	private config: InternalParticle1DConfig;
 	public enabled: boolean = true;
 	public force: number = 0;
 	public velocity: number = 0;
 
 
-	constructor( config: ParticleConfig = {}) {
+	constructor( config: Particle1DConfig = {}) {
 		this.config = Object.assign(
 			{
 				value: 0,

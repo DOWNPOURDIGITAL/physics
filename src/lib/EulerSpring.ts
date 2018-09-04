@@ -1,4 +1,7 @@
-import './configs';
+import {
+	InternalSpring1DConfig,
+	Spring1DConfig,
+} from './configs';
 import { Stepable } from './Computable';
 
 import World from './World';
@@ -7,12 +10,12 @@ import World from './World';
 export default class EulerSpring implements Stepable {
 	private current: number = 0;
 	private target: number = 0;
-	private config: InternalSpringConfig;
+	private config: InternalSpring1DConfig;
 	public enabled: boolean = true;
 	public velocity: number = 0;
 
 
-	constructor( config: SpringConfig = {}) {
+	constructor( config: Spring1DConfig = {}) {
 		this.config = Object.assign(
 			{
 				value: 0,
