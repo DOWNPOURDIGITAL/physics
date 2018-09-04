@@ -1,5 +1,5 @@
 src/
 rollup.config.js
 tsconfig.json
-tslint.js
+tslint.json
 .editorconfig
