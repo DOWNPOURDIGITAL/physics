@@ -1,5 +1,5 @@
 import './configs';
-import './Computable';
+import { Stepable } from './Computable';
 import World from './World';
 
 

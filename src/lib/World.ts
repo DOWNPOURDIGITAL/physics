@@ -1,3 +1,6 @@
+import { Stepable } from './Computable';
+
+
 class World {
 	private entities: Stepable[] = [];
 	private lastFrameTime: number = 0;
