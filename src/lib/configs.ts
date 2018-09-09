@@ -58,3 +58,13 @@ export interface Spring2DConfig extends Particle2DConfig, SpringConfig {}
 export interface InternalSpring1DConfig extends InternalParticle1DConfig, InternalSpringConfig {}
 
 export interface InternalSpring2DConfig extends InternalParticle2DConfig, InternalSpringConfig  {}
+
+
+interface ConstantMotionConfig {
+	speed: number;
+	autoStep?: boolean;
+}
+
+export interface ConstantMotion1DConfig extends ConstantMotionConfig, _1DConfig {}
+
+export interface InternalConstantMotion1DConfig extends ConstantMotionConfig, _Internal1DConfig { }

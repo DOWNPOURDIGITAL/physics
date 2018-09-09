@@ -5,10 +5,10 @@ Simple physics for UI animation!
 
 # Installation
 ```
-yarn add --dev @downpourdigital/physics
+yarn add @downpourdigital/physics
 ```
 ```
-npm i -D @downpourdigital/physics
+npm i @downpourdigital/physics
 ```
 # Usage
 ```javascript
@@ -16,6 +16,7 @@ import {
 	World,
 	EulerSpring,
 	EulerParticle,
+	ConstantMotion,
 } from '@downpourdigital/physics';
 ```
 
@@ -125,8 +126,26 @@ Resets to specific value.
 #### `.step( delta: number )`
 Method for manually stepping the simulation forward one frame. This only needs to be called if `autoStep` is disabled.
 
+## `ConstantMotion`
+
+1D value that moves towards a given value at a constant speed. Useful for timers and as input for easing functions.
+
+```javascript
+import {
+	ConstantMotion,
+} from '@downpourdigital/physics';
+
+const motion = new ConstantMotion({
+	value: 0, // start value
+	speed: 1, // change in value per second
+	autoStep: true, // whether to use the world for stepping
+});
+```
+Methods are the same as `EulerSpring`.
+
 # TODOS:
 - other, more accurate integrations, such as Verlet or RK4
+- 2D and 3D implementations
 - shiny, clicky examples
 - better docs
 - ES5 compatible module
