@@ -12,7 +12,7 @@ import World from './World';
 
 export default class EulerParticle implements Stepable, Computable1D {
 	private value: number = 0;
-	private config: InternalParticle1DConfig;
+	public config: InternalParticle1DConfig;
 	public enabled: boolean = true;
 	public force: number = 0;
 	public velocity: number = 0;

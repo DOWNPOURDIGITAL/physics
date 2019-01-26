@@ -13,7 +13,7 @@ import World from './World';
 export default class EulerSpring implements Stepable, Computable1D {
 	private current: number = 0;
 	private target: number = 0;
-	private config: InternalSpring1DConfig;
+	public config: InternalSpring1DConfig;
 	public enabled: boolean = true;
 	public velocity: number = 0;
 
