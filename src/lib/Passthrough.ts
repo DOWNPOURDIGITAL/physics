@@ -19,6 +19,7 @@ export default class Passthrough implements Stepable, Computable1D {
 	private target: number = 0;
 	public enabled: boolean = true;
 	public config: InternalPassthroughConfig;
+	public velocity: number = 0;
 
 
 	constructor( config: Spring1DConfig | ConstantMotion1DConfig | PassthroughConfig = {}) {
