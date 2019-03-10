@@ -13,7 +13,7 @@ import World from './World';
 export default class ConstantMotion implements Stepable, Computable1D {
 	private current: number = 0;
 	private target: number = 0;
-	private config: InternalConstantMotion1DConfig;
+	public config: InternalConstantMotion1DConfig;
 	public enabled: boolean = true;
 
 
