@@ -17,6 +17,7 @@ import {
 	EulerSpring,
 	EulerParticle,
 	ConstantMotion,
+	Passthrough,
 } from '@downpourdigital/physics';
 ```
 
@@ -141,6 +142,12 @@ const motion = new ConstantMotion({
 	autoStep: true, // whether to use the world for stepping
 });
 ```
+Methods are the same as `EulerSpring`.
+
+## `Passthrough`
+
+Drop-in replacement for `EulerSpring` and `ConstantMotion` that behaves the same way / has the same interface while just passing through the input value unaltered.
+
 Methods are the same as `EulerSpring`.
 
 # TODOS:
