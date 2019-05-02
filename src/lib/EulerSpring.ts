@@ -60,6 +60,11 @@ export default class EulerSpring implements Stepable, Computable1D {
 	}
 
 
+	unschedule() {
+		World.remove( this );
+	}
+
+
 	step( delta: number ) {
 		const a = ( this.target - this.current ) * this.config.stiffness * ( 1 / this.config.mass );
 		const acceleration = Math.min(

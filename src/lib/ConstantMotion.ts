@@ -54,6 +54,11 @@ export default class ConstantMotion implements Stepable, Computable1D {
 	}
 
 
+	unschedule() {
+		World.remove( this );
+	}
+
+
 	step( delta: number ) {
 		if ( this.current !== this.target ) {
 			const difference = this.target - this.current;

@@ -6,8 +6,16 @@ class World {
 	private lastFrameTime: number = 0;
 	private nextFrameReference?: number;
 
+
 	add( s: Stepable ) {
 		this.entities.push( s );
+	}
+
+
+	remove( s: Stepable ) {
+		if ( this.entities.includes( s ) ) {
+			this.entities.splice( this.entities.findIndex( e => e === s ), 1 );
+		}
 	}
 
 

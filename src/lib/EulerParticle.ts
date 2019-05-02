@@ -72,6 +72,11 @@ export default class EulerParticle implements Stepable, Computable1D {
 	}
 
 
+	unschedule() {
+		World.remove( this );
+	}
+
+
 	step( delta: number ) {
 		this.force *= ( 1 - this.config.friction );
 		const acceleration = this.force * ( 1 / this.config.mass );
