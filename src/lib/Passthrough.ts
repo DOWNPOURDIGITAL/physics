@@ -57,6 +57,11 @@ export default class Passthrough implements Stepable, Computable1D {
 	}
 
 
+	unschedule() {
+		World.remove( this );
+	}
+
+
 	step() {
 		this.current = this.target;
 	}
