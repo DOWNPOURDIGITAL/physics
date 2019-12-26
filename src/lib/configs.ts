@@ -1,4 +1,4 @@
-import { Vector2D } from './Vec2';
+import { vec2 } from 'gl-matrix';
 
 
 interface ParticleConfig {
@@ -25,11 +25,11 @@ interface _Internal1DConfig {
 }
 
 interface _2DConfig {
-	value?: Vector2D;
+	value?: vec2;
 }
 
 interface _Internal2DConfig {
-	value: Vector2D;
+	value: vec2;
 }
 
 export interface Particle1DConfig extends ParticleConfig, _1DConfig {}

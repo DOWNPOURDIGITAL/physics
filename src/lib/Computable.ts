@@ -1,5 +1,4 @@
-import Vec2, { Vector2D } from './Vec2';
-
+import { vec2 } from 'gl-matrix';
 
 export interface Computable1D {
 	get: () => number;
@@ -7,8 +6,8 @@ export interface Computable1D {
 }
 
 export interface Computable2D {
-	get: () => Vector2D;
-	set: ( value: Vector2D ) => void;
+	get: ( out: vec2 ) => void;
+	set: ( value: vec2 ) => void;
 }
 
 export interface Stepable {
