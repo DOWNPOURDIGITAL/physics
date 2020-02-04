@@ -19,7 +19,7 @@ export default class EulerSpring2D implements Stepable, Computable2D {
 	private current: vec2 = vec2.create();
 	private target: vec2 = vec2.create();
 	public config: InternalSpring2DConfig;
-	public enabled: boolean = true;
+	public enabled = true;
 	public velocity: vec2 = vec2.create();
 
 	constructor( config: Spring2DConfig = {}) {
@@ -42,35 +42,40 @@ export default class EulerSpring2D implements Stepable, Computable2D {
 	}
 
 
-	get( out: vec2 ) {
-		out[0] = Math.round( this.current[0] * this.config.precision ) / this.config.precision;
-		out[1] = Math.round( this.current[1] * this.config.precision ) / this.config.precision;
+	get( out: vec2 ): void {
+		vec2.set(
+			out,
+			Math.round( this.current[0] * this.config.precision )
+			/ this.config.precision,
+			Math.round( this.current[1] * this.config.precision )
+			/ this.config.precision
+		);
 	}
 
 
-	set( value: vec2 ) {
+	set( value: vec2 ): void {
 		vec2.copy( this.target, value );
 	}
 
 
-	reset() {
+	reset(): void {
 		this.resetTo( this.config.value );
 	}
 
 
-	resetTo( value: vec2 ) {
+	resetTo( value: vec2 ): void {
 		vec2.copy( this.current, value );
 		vec2.copy( this.target, value );
 		vec2.set( this.velocity, 0, 0 );
 	}
 
 
-	unschedule() {
+	unschedule(): void {
 		World.remove( this );
 	}
 
 
-	step( delta: number ) {
+	step( delta: number ): void {
 		vec2.sub( temp, this.target, this.current );
 		vec2.mul( temp, temp, [this.config.stiffness, this.config.stiffness]);
 

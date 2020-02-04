@@ -38,35 +38,38 @@ export default class EulerSpring implements Stepable, Computable1D {
 	}
 
 
-	get() {
-		return Math.round( this.current * this.config.precision ) / this.config.precision;
+	get(): number {
+		return Math.round( this.current * this.config.precision )
+			/ this.config.precision;
 	}
 
 
-	set( value: number ) {
+	set( value: number ): void {
 		this.target = value;
 	}
 
 
-	reset() {
+	reset(): void {
 		this.resetTo( this.config.value );
 	}
 
 
-	resetTo( value: number ) {
+	resetTo( value: number ): void {
 		this.current = value;
 		this.target = value;
 		this.velocity = 0;
 	}
 
 
-	unschedule() {
+	unschedule(): void {
 		World.remove( this );
 	}
 
 
-	step( delta: number ) {
-		const a = ( this.target - this.current ) * this.config.stiffness * ( 1 / this.config.mass );
+	step( delta: number ): void {
+		const a = ( this.target - this.current )
+			* this.config.stiffness
+			* ( 1 / this.config.mass );
 		const acceleration = Math.min(
 			Math.abs( a ),
 			this.config.maxAcceleration,

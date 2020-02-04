@@ -11,11 +11,11 @@ import World from './World';
 
 
 export default class EulerParticle implements Stepable, Computable1D {
-	private value: number = 0;
+	private value = 0;
 	public config: InternalParticle1DConfig;
-	public enabled: boolean = true;
-	public force: number = 0;
-	public velocity: number = 0;
+	public enabled = true;
+	public force = 0;
+	public velocity = 0;
 
 
 	constructor( config: Particle1DConfig = {}) {
@@ -36,48 +36,49 @@ export default class EulerParticle implements Stepable, Computable1D {
 	}
 
 
-	get() {
-		return Math.round( this.value * this.config.precision ) / this.config.precision;
+	get(): number {
+		return Math.round( this.value * this.config.precision )
+			/ this.config.precision;
 	}
 
 
-	set( val: number ) {
+	set( val: number ): void {
 		this.value = val;
 	}
 
 
-	add( val: number ) {
+	add( val: number ): void {
 		this.velocity += val;
 	}
 
 
-	reset() {
+	reset(): void {
 		this.resetTo( this.config.value );
 	}
 
 
-	resetTo( val: number ) {
+	resetTo( val: number ): void {
 		this.value = val;
 		this.velocity = 0;
 	}
 
 
-	setForce( val: number ) {
+	setForce( val: number ): void {
 		this.force = val;
 	}
 
 
-	addForce( val: number ) {
+	addForce( val: number ): void {
 		this.force += val;
 	}
 
 
-	unschedule() {
+	unschedule(): void {
 		World.remove( this );
 	}
 
 
-	step( delta: number ) {
+	step( delta: number ): void {
 		this.force *= ( 1 - this.config.friction );
 		const acceleration = this.force * ( 1 / this.config.mass );
 		const force = ( this.velocity + acceleration ) * ( 1 - this.config.friction );

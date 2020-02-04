@@ -36,12 +36,12 @@ export default class Passthrough implements Stepable, Computable1D {
 	}
 
 
-	reset() {
+	reset(): void {
 		this.resetTo( this.config.value );
 	}
 
 
-	resetTo( value: number ) {
+	resetTo( value: number ): void {
 		this.current = value;
 		this.target = value;
 	}
@@ -52,17 +52,17 @@ export default class Passthrough implements Stepable, Computable1D {
 	}
 
 
-	set( value: number ) {
+	set( value: number ): void {
 		this.target = value;
 	}
 
 
-	unschedule() {
+	unschedule(): void {
 		World.remove( this );
 	}
 
 
-	step() {
+	step(): void {
 		this.current = this.target;
 	}
 }

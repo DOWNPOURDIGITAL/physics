@@ -11,10 +11,10 @@ import World from './World';
 
 
 export default class ConstantMotion implements Stepable, Computable1D {
-	private current: number = 0;
-	private target: number = 0;
+	private current = 0;
+	private target = 0;
 	public config: InternalConstantMotion1DConfig;
-	public enabled: boolean = true;
+	public enabled = true;
 
 
 	constructor( config: ConstantMotion1DConfig = { speed: 1 }) {
@@ -33,33 +33,33 @@ export default class ConstantMotion implements Stepable, Computable1D {
 	}
 
 
-	get() {
+	get(): number {
 		return this.current;
 	}
 
 
-	set( value: number ) {
+	set( value: number ): void {
 		this.target = value;
 	}
 
 
-	reset() {
+	reset(): void {
 		this.resetTo( this.config.value );
 	}
 
 
-	resetTo( value: number ) {
+	resetTo( value: number ): void {
 		this.current = value;
 		this.target = value;
 	}
 
 
-	unschedule() {
+	unschedule(): void {
 		World.remove( this );
 	}
 
 
-	step( delta: number ) {
+	step( delta: number ): void {
 		if ( this.current !== this.target ) {
 			const difference = this.target - this.current;
 

@@ -3,28 +3,28 @@ import { Stepable } from './Computable';
 
 class World {
 	private entities: Stepable[] = [];
-	private lastFrameTime: number = 0;
+	private lastFrameTime = 0;
 	private nextFrameReference?: number;
 
 
-	add( s: Stepable ) {
+	add( s: Stepable ): void {
 		this.entities.push( s );
 	}
 
 
-	remove( s: Stepable ) {
+	remove( s: Stepable ): void {
 		if ( this.entities.includes( s ) ) {
 			this.entities.splice( this.entities.findIndex( e => e === s ), 1 );
 		}
 	}
 
 
-	step( delta: number, time: number ) {
+	step( delta: number, time: number ): void {
 		this.entities.forEach( s => s.enabled && s.step( delta, time ) );
 	}
 
 
-	loop() {
+	loop(): void {
 		const currentFrameTime = performance.now();
 		const delta = ( currentFrameTime - this.lastFrameTime ) / 16.667;
 
@@ -35,14 +35,14 @@ class World {
 	}
 
 
-	start() {
+	start(): void {
 		this.lastFrameTime = performance.now();
 
 		this.loop();
 	}
 
 
-	stop() {
+	stop(): void {
 		if ( this.nextFrameReference ) cancelAnimationFrame( this.nextFrameReference );
 	}
 }
