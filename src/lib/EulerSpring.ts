@@ -1,40 +1,32 @@
-import {
-	InternalSpring1DConfig,
-	Spring1DConfig,
-} from './configs';
-import {
-	Stepable,
-	Computable1D,
-} from './Computable';
-
+import { Computable1D, Stepable } from './Computable';
+import { Spring1DConfig } from './configs';
 import World from './World';
 
 
 export default class EulerSpring implements Stepable, Computable1D {
-	private current: number = 0;
-	private target: number = 0;
-	public config: InternalSpring1DConfig;
-	public enabled: boolean = true;
-	public velocity: number = 0;
+	private current = 0;
+	private target = 0;
+	public config: Spring1DConfig;
+	public enabled = true;
+	public velocity = 0;
 
 
-	constructor( config: Spring1DConfig = {}) {
-		this.config = Object.assign(
-			{
-				value: 0,
-				mass: 1,
-				friction: .5,
-				precision: 100000,
-				stiffness: .2,
-				maxVelocity: Infinity,
-				maxAcceleration: Infinity,
-			},
-			config,
-		);
+	constructor( config: Partial<Spring1DConfig> = {}) {
+		this.config = {
+			value: 0,
+			mass: 1,
+			friction: .5,
+			precision: 100000,
+			stiffness: .2,
+			maxVelocity: Infinity,
+			maxAcceleration: Infinity,
+			autoStep: true,
+			...config,
+		};
 
 		this.reset();
 
-		if ( config.autoStep !== false ) World.add( this );
+		if ( this.config.autoStep ) World.add( this );
 	}
 
 

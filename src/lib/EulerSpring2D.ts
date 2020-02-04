@@ -1,14 +1,7 @@
 import { vec2 } from 'gl-matrix';
 
-import {
-	InternalSpring2DConfig,
-	Spring2DConfig,
-} from './configs';
-import {
-	Stepable,
-	Computable2D,
-} from './Computable';
-
+import { Computable2D, Stepable } from './Computable';
+import { Spring2DConfig } from './configs';
 import World from './World';
 
 
@@ -18,27 +11,26 @@ const temp = vec2.create();
 export default class EulerSpring2D implements Stepable, Computable2D {
 	private current: vec2 = vec2.create();
 	private target: vec2 = vec2.create();
-	public config: InternalSpring2DConfig;
+	public config: Spring2DConfig;
 	public enabled = true;
 	public velocity: vec2 = vec2.create();
 
-	constructor( config: Spring2DConfig = {}) {
-		this.config = Object.assign(
-			{
-				value: zero,
-				mass: 1,
-				friction: .5,
-				precision: 100000,
-				stiffness: .2,
-				maxVelocity: Infinity,
-				maxAcceleration: Infinity,
-			},
-			config,
-		);
+	constructor( config: Partial<Spring2DConfig> = {}) {
+		this.config = {
+			value: zero,
+			mass: 1,
+			friction: .5,
+			precision: 100000,
+			stiffness: .2,
+			maxVelocity: Infinity,
+			maxAcceleration: Infinity,
+			autoStep: true,
+			...config,
+		};
 
 		this.reset();
 
-		if ( config.autoStep !== false ) World.add( this );
+		if ( this.config.autoStep ) World.add( this );
 	}
 
 

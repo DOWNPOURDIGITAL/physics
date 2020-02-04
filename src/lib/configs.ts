@@ -2,51 +2,29 @@ import { vec2 } from 'gl-matrix';
 
 
 interface ParticleConfig {
-	mass?: number;
-	friction?: number;
-	precision?: number;
-	maxVelocity?: number;
-	autoStep?: boolean;
-}
-
-interface InternalParticleConfig {
 	mass: number;
 	friction: number;
 	precision: number;
 	maxVelocity: number;
+	autoStep: boolean;
 }
 
-interface _1DConfig {
-	value? : number;
-}
 
-interface _Internal1DConfig {
+interface Generic1DConfig {
 	value: number;
 }
 
-interface _2DConfig {
-	value?: vec2;
-}
 
-interface _Internal2DConfig {
+interface Generic2DConfig {
 	value: vec2;
 }
 
-export interface Particle1DConfig extends ParticleConfig, _1DConfig {}
+export interface Particle1DConfig extends ParticleConfig, Generic1DConfig {}
 
-export interface Particle2DConfig extends ParticleConfig, _2DConfig {}
-
-export interface InternalParticle1DConfig extends InternalParticleConfig, _Internal1DConfig {}
-
-export interface InternalParticle2DConfig extends InternalParticleConfig, _Internal2DConfig {}
+export interface Particle2DConfig extends ParticleConfig, Generic2DConfig {}
 
 
 interface SpringConfig extends ParticleConfig {
-	stiffness?: number;
-	maxAcceleration?: number;
-}
-
-interface InternalSpringConfig extends InternalParticleConfig {
 	stiffness: number;
 	maxAcceleration: number;
 }
@@ -55,16 +33,10 @@ export interface Spring1DConfig extends Particle1DConfig, SpringConfig {}
 
 export interface Spring2DConfig extends Particle2DConfig, SpringConfig {}
 
-export interface InternalSpring1DConfig extends InternalParticle1DConfig, InternalSpringConfig {}
-
-export interface InternalSpring2DConfig extends InternalParticle2DConfig, InternalSpringConfig  {}
-
 
 interface ConstantMotionConfig {
 	speed: number;
-	autoStep?: boolean;
+	autoStep: boolean;
 }
 
-export interface ConstantMotion1DConfig extends ConstantMotionConfig, _1DConfig {}
-
-export interface InternalConstantMotion1DConfig extends ConstantMotionConfig, _Internal1DConfig { }
+export interface ConstantMotion1DConfig extends ConstantMotionConfig, Generic1DConfig {}

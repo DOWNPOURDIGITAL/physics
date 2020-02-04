@@ -1,31 +1,22 @@
-import {
-	Stepable,
-	Computable1D,
-} from './Computable';
-import {
-	ConstantMotion1DConfig,
-	InternalConstantMotion1DConfig,
-} from './configs';
-
+import { Computable1D, Stepable } from './Computable';
+import { ConstantMotion1DConfig } from './configs';
 import World from './World';
 
 
 export default class ConstantMotion implements Stepable, Computable1D {
 	private current = 0;
 	private target = 0;
-	public config: InternalConstantMotion1DConfig;
+	public config: ConstantMotion1DConfig;
 	public enabled = true;
 
 
-	constructor( config: ConstantMotion1DConfig = { speed: 1 }) {
-		this.config = Object.assign(
-			{
-				value: 0,
-				speed: 1,
-				autoStep: true,
-			},
-			config,
-		);
+	constructor( config: Partial<ConstantMotion1DConfig> = { speed: 1 }) {
+		this.config = {
+			value: 0,
+			speed: 1,
+			autoStep: true,
+			...config,
+		};
 
 		this.reset();
 

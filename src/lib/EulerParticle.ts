@@ -1,38 +1,30 @@
-import {
-	InternalParticle1DConfig,
-	Particle1DConfig,
-} from './configs';
-import {
-	Stepable,
-	Computable1D,
-} from './Computable';
-
+import { Computable1D, Stepable } from './Computable';
+import { Particle1DConfig } from './configs';
 import World from './World';
 
 
 export default class EulerParticle implements Stepable, Computable1D {
 	private value = 0;
-	public config: InternalParticle1DConfig;
+	public config: Particle1DConfig;
 	public enabled = true;
 	public force = 0;
 	public velocity = 0;
 
 
-	constructor( config: Particle1DConfig = {}) {
-		this.config = Object.assign(
-			{
-				value: 0,
-				mass: 1,
-				friction: .5,
-				precision: 100000,
-				maxVelocity: Infinity,
-			},
-			config,
-		);
+	constructor( config: Partial<Particle1DConfig> = {}) {
+		this.config = {
+			value: 0,
+			mass: 1,
+			friction: .5,
+			precision: 100000,
+			maxVelocity: Infinity,
+			autoStep: true,
+			...config,
+		};
 
 		this.reset();
 
-		if ( config.autoStep !== false ) World.add( this );
+		if ( this.config.autoStep ) World.add( this );
 	}
 
 
