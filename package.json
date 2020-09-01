@@ -1,6 +1,6 @@
 {
   "name": "@downpourdigital/physics",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "main": "dist/cjs/physics.js",
   "module": "dist/esm/physics.js",
   "author": "JohH <code@johh.net>",
