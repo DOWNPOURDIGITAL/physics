@@ -40,7 +40,7 @@ export default class EulerSpring2D implements Stepable, Computable2D {
 			Math.round( this.current[0] * this.config.precision )
 			/ this.config.precision,
 			Math.round( this.current[1] * this.config.precision )
-			/ this.config.precision
+			/ this.config.precision,
 		);
 	}
 

@@ -19,7 +19,7 @@ export default class Passthrough implements Stepable, Computable1D {
 
 	constructor(
 		config: Partial<Spring1DConfig|ConstantMotion1DConfig|PassthroughConfig> =
-		{}
+		{},
 	) {
 		this.config = {
 			value: 0,

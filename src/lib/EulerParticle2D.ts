@@ -38,7 +38,7 @@ export default class EulerParticle2D implements Stepable, Computable2D {
 			Math.round( this.value[0] * this.config.precision )
 			/ this.config.precision,
 			Math.round( this.value[1] * this.config.precision )
-			/ this.config.precision
+			/ this.config.precision,
 		);
 	}
 
