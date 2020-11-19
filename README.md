@@ -91,67 +91,58 @@ const spring = new RK4Spring({
 
 ### Props and Methods
 
-##### `isResting: boolean`
+* ##### `isResting: boolean`
 
-Indicates wether the simulation is in a resting state or actively changing.
+  Indicates wether the simulation is in a resting state or actively changing.
 
----
 
-##### `set( value: number ): void `
+* ##### `set( value: number ): void `
 
-Sets the spring target to a given position. The spring will subsequently begin moving towards that position.
+  Sets the spring target to a given position. The spring will subsequently begin moving towards that position.
 
----
 
-##### `get(): number `
+* ##### `get(): number `
 
-Returns the current spring position.
+  Returns the current spring position.
 
----
 
-##### `getVelocity(): number`
+* ##### `getVelocity(): number`
 
-Returns the current velocity.
+  Returns the current velocity.
 
----
 
-##### `reset(): void`
+* ##### `reset(): void`
 
-Resets the spring to its initial position and to zero velocity.
+  Resets the spring to its initial position and to zero velocity.
 
----
 
-##### `resetTo( value: number ): void`
+* ##### `resetTo( value: number ): void`
 
-Resets the spring to a given position and to zero velocity.
+  Resets the spring to a given position and to zero velocity.
 
----
 
-##### `stop(): void` 
+* ##### `stop(): void` 
 
-Ends the simulation.
+  Ends the simulation.
 
----
 
 ### 2D and 3D specific methods
 
-##### `set( value: vec2 | vec3 ): void` and `resetTo( value: vec2 | vec3 ): void`
+* ##### `set( value: vec2 | vec3 ): void` and `resetTo( value: vec2 | vec3 ): void`
 
-`set` and `resetTo` expect the value to be a [`gl-matrix`](http://glmatrix.net/) `vec2`/`vec3` on the 2D and 3D versions respectively.
+  `set` and `resetTo` expect the value to be a [`gl-matrix`](http://glmatrix.net/) `vec2`/`vec3` on the 2D and 3D versions respectively.
 
----
 
-##### `get( out: vec2 | vec3 ): void` and `getVelocity( out: vec2 | vec3 ): void`
+* ##### `get( out: vec2 | vec3 ): void` and `getVelocity( out: vec2 | vec3 ): void`
 
-Similarly to [`gl-matrix`](http://glmatrix.net/) functions, `get` and `getVelocity` don't return the position but rather expect an `out` vector to write the result to. This allows for better optimisation. 
+  Similarly to [`gl-matrix`](http://glmatrix.net/) functions, `get` and `getVelocity` don't return the position but rather expect an `out` vector to write the result to. This allows for better optimisation. 
 
----
 
-##### `read(): vec2 | vec3` and `readVelocity(): vec2 | vec3`
+* ##### `read(): vec2 | vec3` and `readVelocity(): vec2 | vec3`
 
-`read` and `readVelocity` return the internal vector representation of position and velocity respectively. As they are being used internally, **they should only be read**. Mutating them will mess up the simulation. Also their values will change as the simulation runs.
+  `read` and `readVelocity` return the internal vector representation of position and velocity respectively.  
+  As they are being used internally, **they should only be read**. Mutating them will mess up the simulation. Also their values will change as the simulation runs.
 
----
 
 ## Passthrough
 
