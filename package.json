@@ -1,6 +1,6 @@
 {
 	"name": "@downpourdigital/physics",
-	"version": "0.0.0",
+	"version": "1.0.0-rc.0",
 	"description": "Animation physics!",
 	"main": "dist/cjs/physics.js",
 	"module": "dist/esm/physics.js",
