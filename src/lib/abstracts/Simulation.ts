@@ -1,4 +1,3 @@
-import defaultWorld from '../defaultWorld';
 import Stepper, { StepperProps } from './Stepper';
 
 
@@ -61,10 +60,5 @@ export default abstract class Simulation extends Stepper {
 
 	public reset(): void {
 		this.resetTo( this.initial );
-	}
-
-
-	public stop(): void {
-		defaultWorld.remove( this );
 	}
 }

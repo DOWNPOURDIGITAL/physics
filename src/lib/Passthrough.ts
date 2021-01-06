@@ -50,4 +50,9 @@ export default class Passthrough implements Stepable {
 		this.target = value;
 		this.position = value;
 	}
+
+
+	public stop(): void {
+		defaultWorld.remove( this );
+	}
 }

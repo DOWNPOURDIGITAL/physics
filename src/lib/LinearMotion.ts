@@ -70,4 +70,9 @@ export default class LinearMotion implements Stepable {
 		this.position = value;
 		this.target = value;
 	}
+
+
+	public stop(): void {
+		defaultWorld.remove( this );
+	}
 }
