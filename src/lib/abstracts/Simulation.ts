@@ -52,6 +52,11 @@ export default abstract class Simulation extends Stepper {
 	}
 
 
+	public setVelocity( value: number ): void {
+		this.state[1] = value;
+	}
+
+
 	public resetTo( value: number ): void {
 		this.state[0] = value;
 		this.state[1] = 0;

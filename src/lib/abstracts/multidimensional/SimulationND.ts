@@ -83,6 +83,11 @@ export default abstract class SimulationND<V> extends Stepper {
 	}
 
 
+	public setVelocity( value: V ): void {
+		this.v.copy( this.state[1], value as any );
+	}
+
+
 	public reset(): void {
 		this.resetTo( this.initial as any );
 	}
