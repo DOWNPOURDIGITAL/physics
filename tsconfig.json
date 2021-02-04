@@ -11,17 +11,15 @@
 		"jsx": "react",
 		"esModuleInterop": false,
 		"removeComments": true,
-		"allowSyntheticDefaultImports": true,
 		"lib": [
-			"es2017",
+			"ES2017",
 			"dom",
 			"webworker",
-			"es2018.promise"
 		],
 		"plugins": []
 	},
 	"include": [
 		"./src/**/*",
-		"*.config.js"
+		"./*.config.js",
 	]
 }

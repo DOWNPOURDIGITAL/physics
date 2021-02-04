@@ -1,15 +1,15 @@
-import EulerSimulation from './abstracts/EulerSimulation';
+import RK4Simulation from './abstracts/RK4Simulation';
 import { SimulationProps, SimulationState } from './abstracts/Simulation';
 import { springForceFromState } from './utils/springForceFromState';
 
 
-export interface EulerSpringProps extends SimulationProps {
+export interface RK4SpringProps extends SimulationProps {
 	stiffness: number;
 	damping: number;
 }
 
 
-export default class EulerSpring extends EulerSimulation {
+export default class RK4Spring extends RK4Simulation {
 	private target = 0;
 	public stiffness: number;
 	public damping: number;
@@ -19,7 +19,7 @@ export default class EulerSpring extends EulerSimulation {
 		stiffness = 250,
 		damping = 15,
 		...rest
-	}: Partial<EulerSpringProps> = {}) {
+	}: Partial<RK4SpringProps> = {}) {
 		super( rest );
 
 		this.stiffness = stiffness;
