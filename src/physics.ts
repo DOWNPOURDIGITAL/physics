@@ -6,7 +6,7 @@ export { default as EulerSpring3D } from './lib/EulerSpring3D';
 
 export { default as RK4Spring } from './lib/RK4Spring';
 export { default as RK4Spring2D } from './lib/RK4Spring2D';
-export { default as RK4Spring3D } from './lib/RK4Spring2D';
+export { default as RK4Spring3D } from './lib/RK4Spring3D';
 
 export { default as LinearMotion } from './lib/LinearMotion';
 
