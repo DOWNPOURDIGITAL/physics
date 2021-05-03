@@ -11,7 +11,7 @@ export interface RK4SpringNDProps<V> extends SimulationNDProps<V> {
 
 
 export default abstract class RK4SpringND<V> extends RK4SimulationND<V> {
-	private target: Float32Array;
+	protected target: Float32Array;
 	public stiffness: number;
 	public damping: number;
 

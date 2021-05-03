@@ -23,9 +23,11 @@ import {
 	EulerSpring,
 	EulerSpring2D,
 	EulerSpring3D,
+	EulerSpringQuat,
 	RK4Spring,
 	RK4Spring2D,
-	RK4Spring3D,			
+	RK4Spring3D,	
+	RK4SpringQuat,		
 	LinearMotion,
 	Passthrough,
 } from "@downpourdigital/physics";
@@ -34,7 +36,7 @@ As this package depends on [@downpourdigital/scheduler](https://www.npmjs.com/pa
 
 ## Simulation Variants
 
-Springs are available as 1D, 2D and 3D versions, as well as with two different integrators.
+Springs are available as 1D, 2D, 3D, and quaternion versions, as well as with two different integrators.
 
 * `EulerSpring`s are integrated via the [semi-implicit Euler method](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method). They are cheap to compute and probably good enough for most applications.
 
@@ -126,19 +128,19 @@ const spring = new RK4Spring({
   Ends the simulation.
 
 
-### 2D and 3D specific methods
+### 2D, 3D and quaternion specific methods
 
-* ##### `set( value: vec2 | vec3 ): void` and `resetTo( value: vec2 | vec3 ): void`
+* ##### `set( value: vec2 | vec3 | quat ): void` and `resetTo( value: vec2 | vec3 | quat ): void`
 
-  `set` and `resetTo` expect the value to be a [`gl-matrix`](http://glmatrix.net/) `vec2`/`vec3` on the 2D and 3D versions respectively.
+  `set` and `resetTo` expect the value to be a [`gl-matrix`](http://glmatrix.net/) `vec2`/`vec3`/`quat` on the 2D, 3D and quat versions respectively.
 
 
-* ##### `get( out: vec2 | vec3 ): void` and `getVelocity( out: vec2 | vec3 ): void`
+* ##### `get( out: vec2 | vec3 | quat ): void` and `getVelocity( out: vec2 | vec3 | quat ): void`
 
   Similarly to [`gl-matrix`](http://glmatrix.net/) functions, `get` and `getVelocity` don't return the position but rather expect an `out` vector to write the result to. This allows for better optimisation. 
 
 
-* ##### `read(): vec2 | vec3` and `readVelocity(): vec2 | vec3`
+* ##### `read(): vec2 | vec3 | quat` and `readVelocity(): vec2 | vec3 | quat`
 
   `read` and `readVelocity` return the internal vector representation of position and velocity respectively.  
   As they are being used internally, **they should only be read**. Mutating them will mess up the simulation. Also their values will change as the simulation runs.
@@ -197,4 +199,4 @@ world.step( time );
 
 ## License
 
-© 2020 [DOWNPOUR DIGITAL](https://downpour.digital), licensed under BSD-4-Clause
+© 2021 [DOWNPOUR DIGITAL](https://downpour.digital), licensed under BSD-4-Clause

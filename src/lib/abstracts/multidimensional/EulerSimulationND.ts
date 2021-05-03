@@ -2,7 +2,7 @@
 import SimulationND from './SimulationND';
 
 
-const temp = new Float32Array( 3 );
+const temp = new Float32Array( 4 );
 
 
 export default abstract class EulerSimulationND<V> extends SimulationND<V> {

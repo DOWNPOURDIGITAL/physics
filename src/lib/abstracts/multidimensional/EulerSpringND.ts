@@ -11,7 +11,7 @@ export interface EulerSpringNDProps<V> extends SimulationNDProps<V> {
 
 
 export default abstract class EulerSpringND<V> extends EulerSimulationND<V> {
-	private target: Float32Array;
+	protected target: Float32Array;
 	public stiffness: number;
 	public damping: number;
 

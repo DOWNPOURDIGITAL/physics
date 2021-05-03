@@ -5,30 +5,30 @@ import SimulationND, { SimulationNDState } from './SimulationND';
 export type RK4DerivativeND = [dx: Float32Array, dv: Float32Array];
 
 
-const temp = new Float32Array( 3 );
-const dxdt = new Float32Array( 3 );
-const dvdt = new Float32Array( 3 );
-const zero = new Float32Array( 3 );
+const temp = new Float32Array( 4 );
+const dxdt = new Float32Array( 4 );
+const dvdt = new Float32Array( 4 );
+const zero = new Float32Array( 4 );
 
 const tempA: RK4DerivativeND = [
-	new Float32Array( 3 ),
-	new Float32Array( 3 ),
+	new Float32Array( 4 ),
+	new Float32Array( 4 ),
 ];
 const tempB: RK4DerivativeND = [
-	new Float32Array( 3 ),
-	new Float32Array( 3 ),
+	new Float32Array( 4 ),
+	new Float32Array( 4 ),
 ];
 const tempC: RK4DerivativeND = [
-	new Float32Array( 3 ),
-	new Float32Array( 3 ),
+	new Float32Array( 4 ),
+	new Float32Array( 4 ),
 ];
 const tempD: RK4DerivativeND = [
-	new Float32Array( 3 ),
-	new Float32Array( 3 ),
+	new Float32Array( 4 ),
+	new Float32Array( 4 ),
 ];
 const tempState: SimulationNDState = [
-	new Float32Array( 3 ),
-	new Float32Array( 3 ),
+	new Float32Array( 4 ),
+	new Float32Array( 4 ),
 ];
 
 

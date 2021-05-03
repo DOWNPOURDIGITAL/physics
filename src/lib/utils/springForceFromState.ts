@@ -16,8 +16,8 @@ export function springForceFromState(
 }
 
 
-const temp = new Float32Array( 3 );
-const temp2 = new Float32Array( 3 );
+const temp = new Float32Array( 4 );
+const temp2 = new Float32Array( 4 );
 
 export function springForceFromStateND(
 	out: Float32Array,
