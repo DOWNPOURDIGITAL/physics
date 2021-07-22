@@ -5,7 +5,7 @@
 		"declaration": true,
 		"declarationDir": "./dist/",
 		"noImplicitAny": true,
-		"module": "es6",
+		"module": "esnext",
 		"moduleResolution": "node",
 		"target": "es6",
 		"jsx": "react",
