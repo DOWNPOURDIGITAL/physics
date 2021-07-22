@@ -1,0 +1,4 @@
+{
+	"main": "../dist/cjs/multi.js",
+	"module": "../dist/esm/multi.js"
+}

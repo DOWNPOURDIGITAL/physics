@@ -1,6 +1,6 @@
 import EulerSimulation from './abstracts/EulerSimulation';
 import { SimulationProps, SimulationState } from './abstracts/Simulation';
-import { springForceFromState } from './utils/springForceFromState';
+import springForceFromState from './utils/springForceFromState';
 
 
 export interface EulerSpringProps extends SimulationProps {

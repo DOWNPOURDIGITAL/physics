@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { springForceFromStateND } from '../../utils/springForceFromState';
+import springForceFromStateND from '../../utils/springForceFromStateND';
 import RK4SimulationND from './RK4SimulationND';
 import { SimulationNDProps, SimulationNDState } from './SimulationND';
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { springForceFromStateND } from '../../utils/springForceFromState';
+import springForceFromStateND from '../../utils/springForceFromStateND';
 import EulerSimulationND from './EulerSimulationND';
 import { SimulationNDProps, SimulationNDState } from './SimulationND';
 

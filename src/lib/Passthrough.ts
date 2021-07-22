@@ -1,7 +1,7 @@
 import Stepable from './abstracts/Stepable';
 import defaultWorld from './defaultWorld';
-import { EulerSpringProps } from './EulerSpring';
-import { RK4SpringProps } from './RK4Spring';
+import type { EulerSpringProps } from './EulerSpring';
+import type { RK4SpringProps } from './RK4Spring';
 
 
 type PassthroughProps = Partial<EulerSpringProps | RK4SpringProps>;

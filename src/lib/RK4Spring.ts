@@ -1,6 +1,6 @@
 import RK4Simulation from './abstracts/RK4Simulation';
 import { SimulationProps, SimulationState } from './abstracts/Simulation';
-import { springForceFromState } from './utils/springForceFromState';
+import springForceFromState from './utils/springForceFromState';
 
 
 export interface RK4SpringProps extends SimulationProps {

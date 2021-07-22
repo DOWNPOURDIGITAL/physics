@@ -32,7 +32,6 @@
 		"@babel/plugin-proposal-object-rest-spread": "^7.10.4",
 		"@babel/preset-env": "^7.10.4",
 		"@babel/preset-typescript": "^7.10.4",
-		"@types/gl-matrix": "^2.4.5",
 		"@typescript-eslint/eslint-plugin": "^4.7.0",
 		"@typescript-eslint/parser": "^4.7.0",
 		"babel-eslint": "^10.0.2",
@@ -43,17 +42,22 @@
 		"eslint-plugin-react": "^7.20.0",
 		"eslint-plugin-react-hooks": "^2.5.0",
 		"husky": "^4.2.5",
+		"gl-matrix": "^3.3.0",
 		"lint-staged": "^10.2.11",
 		"rollup": "^2.22.2",
 		"rollup-plugin-terser": "^7.0.2",
 		"rollup-plugin-typescript2": "^0.27.1",
-		"ts-transformer-properties-rename": "^0.9.0",
 		"tslib": "^2.0.0",
 		"typescript": "^4.0.5"
 	},
 	"dependencies": {},
 	"peerDependencies": {
 		"gl-matrix": "3.x.x"
+	},
+	"peerDependenciesMeta": {
+		"gl-matrix": {
+			"optional": true
+		}
 	},
 	"husky": {
 		"hooks": {

@@ -1,31 +1,31 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import typescript from 'rollup-plugin-typescript2';
-import propertiesRenameTransformer from 'ts-transformer-properties-rename';
 import { terser } from 'rollup-plugin-terser';
 
-
 export default {
-	input: './src/physics.ts',
+	external: ['gl-matrix'],
+
+	input: ['./src/physics.ts', './src/multi.ts'],
 
 	output: [
 		{
 			dir: 'dist/esm',
 			format: 'esm',
+			chunkFileNames: '[hash].js',
 		},
 		{
 			dir: 'dist/cjs',
 			format: 'cjs',
+			chunkFileNames: '[hash].js',
 		},
 	],
+
+	cache: false,
 
 	plugins: [
 		terser({
 			format: {
 				comments: false,
-			},
-			mangle: {
-				properties: {
-					regex: /^_private_/,
-				},
 			},
 		}),
 		typescript({
@@ -34,20 +34,7 @@ export default {
 					module: 'esnext',
 				},
 			},
-			// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-			transformers: [( service ) => ({
-				before: [
-					propertiesRenameTransformer(
-						service.getProgram(),
-						{
-							privatePrefix: '_private_',
-							internalPrefix: '',
-							entrySourceFiles: ['./src/physics.ts'],
-						},
-					),
-				],
-				after: [],
-			})],
+			clean: true,
 		}),
 	],
 };
