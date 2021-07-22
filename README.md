@@ -6,8 +6,6 @@ Spring physics for (UI-) animation!
 
 ## Installation
 
-This package depends on [@downpourdigital/scheduler](https://www.npmjs.com/package/@downpourdigital/scheduler).
-
 ```
 yarn add @downpourdigital/physics
 ```
@@ -15,25 +13,36 @@ yarn add @downpourdigital/physics
 npm i --save @downpourdigital/physics
 ```
 
+All multi-dimensional versions of the springs depend on [`gl-matrix`](http://glmatrix.net/), which you'll have to install manually.
 
 ## Usage
 
 ```typescript
 import {
 	EulerSpring,
+	RK4Spring,
+	LinearMotion,
+	Passthrough,
+  defaultWorld,
+} from "@downpourdigital/physics";
+
+import {
 	EulerSpring2D,
 	EulerSpring3D,
 	EulerSpringQuat,
-	RK4Spring,
 	RK4Spring2D,
 	RK4Spring3D,	
 	RK4SpringQuat,		
-	LinearMotion,
-	Passthrough,
-} from "@downpourdigital/physics";
-```
-As this package depends on [@downpourdigital/scheduler](https://www.npmjs.com/package/@downpourdigital/scheduler), remember to call `scheduler.start()` somewhere in your app.
+} from "@downpourdigital/physics/multi";
 
+
+const loop = () => {
+	defaultWorld.step( performance.now() );
+	requestAnimationFrame( loop );
+};
+
+requestAnimationFrame( loop );
+```
 ## Simulation Variants
 
 Springs are available as 1D, 2D, 3D, and quaternion versions, as well as with two different integrators.
@@ -171,7 +180,7 @@ const spring = new LinearMotion({
 
 ## Manual stepping
 
-Stepping can also be done manually: if `autoStep: false` is passed in the config of any simulation, it won't be attached to the physics world. You can now step each simulation individually or bundle multiple simulations together in a physics world.
+Stepping can also be done manually: if `autoStep: false` is passed in the config of any simulation, it won't be attached to the default physics world. You can now step each simulation individually or bundle multiple simulations together in another physics world.
 
 #### Example
 
@@ -196,6 +205,14 @@ world.step( time );
 
 ```
 
+## Usage with [`@downpourdigital/scheduler`](https://www.npmjs.com/package/@downpourdigital/scheduler)
+
+```typescript
+import { loop, update } from '@downpourdigital/scheduler';
+import { defaultWorld } from '@downpourdigital/physics';
+
+loop( () => [update( ( delta, time ) => defaultWorld.step( time ) )]);
+```
 
 ## License
 
