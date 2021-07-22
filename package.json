@@ -53,7 +53,6 @@
 	},
 	"dependencies": {},
 	"peerDependencies": {
-		"@downpourdigital/scheduler": "1.x.x",
 		"gl-matrix": "3.x.x"
 	},
 	"husky": {
