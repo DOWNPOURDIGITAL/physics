@@ -51,6 +51,12 @@ export default abstract class RK4SpringND<V> extends RK4SimulationND<V> {
 	}
 
 
+	protected checkResting(): boolean {
+		return this.v.len( this.state[1]) < this.restDelta
+			&& this.v.dist( this.state[0], this.target ) < this.restDelta;
+	}
+
+
 	public set( target: V ): void {
 		if ( !this.v.equals( this.target, target as any ) ) {
 			this.v.copy( this.target, target as any );

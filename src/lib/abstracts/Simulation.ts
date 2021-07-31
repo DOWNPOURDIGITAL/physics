@@ -23,7 +23,7 @@ export default abstract class Simulation extends Stepper {
 		value = 0,
 		velocity = 0,
 		mass = 1,
-		restDelta = .0001,
+		restDelta = .0005,
 		...rest
 	}: Partial<SimulationProps> = {}) {
 		super( rest );
@@ -39,6 +39,11 @@ export default abstract class Simulation extends Stepper {
 	// eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
 	protected computeForce( state: SimulationState ): number {
 		return 0;
+	}
+
+
+	protected checkResting(): boolean {
+		return Math.abs( this.state[1]) < this.restDelta;
 	}
 
 

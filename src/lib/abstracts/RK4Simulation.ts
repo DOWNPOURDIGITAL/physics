@@ -18,14 +18,14 @@ export default abstract class RK4Simulation extends Simulation {
 
 		const velocity = this.state[1] + dvdt * dt;
 
-		if ( Math.abs( velocity ) > this.restDelta ) {
-			this.state[1] = velocity;
-		} else {
-			this.state[1] = 0;
-			this.isResting = true;
-		}
-
 		this.state[0] += dxdt * dt;
+		this.state[1] = velocity;
+
+		this.isResting = this.checkResting();
+
+		if ( this.isResting ) {
+			this.state[1] = 0;
+		}
 	}
 
 

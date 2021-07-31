@@ -52,16 +52,15 @@ export default abstract class RK4SimulationND<V> extends SimulationND<V> {
 		this.v.scale( dvdt, dvdt, 1 / 6 );
 
 		// velocity
-		this.v.scaleAndAdd( temp, this.state[1], dvdt, dt );
-
-		if ( this.v.len( temp ) > this.restDelta ) {
-			this.v.copy( this.state[1], temp );
-		} else {
-			this.v.zero( this.state[1]);
-			this.isResting = true;
-		}
-
+		this.v.scaleAndAdd( this.state[1], this.state[1], dvdt, dt );
+		// position
 		this.v.scaleAndAdd( this.state[0], this.state[0], dxdt, dt );
+
+		this.isResting = this.checkResting();
+
+		if ( this.isResting ) {
+			this.v.zero( this.state[1]);
+		}
 	}
 
 

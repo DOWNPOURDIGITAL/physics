@@ -15,15 +15,16 @@ export default abstract class EulerSimulationND<V> extends SimulationND<V> {
 		this.v.scale( temp, temp, 1 / this.mass );
 
 		// velocity
-		this.v.scaleAndAdd( temp, this.state[1], temp, dt );
+		this.v.scaleAndAdd( this.state[1], this.state[1], temp, dt );
 
-		if ( this.v.len( temp ) > this.restDelta ) {
-			this.v.copy( this.state[1], temp );
-		} else {
-			this.v.zero( this.state[1]);
-			this.isResting = true;
-		}
-
+		// position
 		this.v.scaleAndAdd( this.state[0], this.state[0], this.state[1], dt );
+
+
+		this.isResting = this.checkResting();
+
+		if ( this.isResting ) {
+			this.v.zero( this.state[1]);
+		}
 	}
 }

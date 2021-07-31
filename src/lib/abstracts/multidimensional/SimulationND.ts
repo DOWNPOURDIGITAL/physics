@@ -29,7 +29,7 @@ export default abstract class SimulationND<V> extends Stepper {
 		velocity,
 		vector,
 		mass = 1,
-		restDelta = .0001,
+		restDelta = .0005,
 		...rest
 	}: Partial<SimulationNDProps<V>> = {}) {
 		super( rest );
@@ -59,6 +59,11 @@ export default abstract class SimulationND<V> extends Stepper {
 	// eslint-disable-next-line class-methods-use-this, @typescript-eslint/no-unused-vars
 	protected computeForce( out: Float32Array, state: SimulationNDState ): void {
 		// keep
+	}
+
+
+	protected checkResting(): boolean {
+		return this.v.len( this.state[1]) < this.restDelta;
 	}
 
 

@@ -44,6 +44,12 @@ export default class RK4Spring extends RK4Simulation {
 	}
 
 
+	protected checkResting(): boolean {
+		return Math.abs( this.state[1]) < this.restDelta
+			&& Math.abs( this.state[0] - this.target ) < this.restDelta;
+	}
+
+
 	public set( target: number ): void {
 		if ( target !== this.target ) {
 			this.target = target;

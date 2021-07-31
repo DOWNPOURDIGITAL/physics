@@ -8,6 +8,7 @@ export type VectorClass = {
 	add: typeof vec2.add;
 	sub: typeof vec2.sub;
 	div: typeof vec2.div;
+	dist: typeof vec2.dist;
 	mul: typeof vec2.mul;
 	len: typeof vec2.len;
 	scale: typeof vec2.scale;
